@@ -1,0 +1,13 @@
+name: setupApp
+# on – определяет события, которые запускают воркфлоу
+on: push
+jobs:
+  # build – произвольно выбранное имя задания
+  build:
+    runs-on: ubuntu-latest
+    steps: # список шагов, которые надо выполнить
+      - uses: actions/checkout@v4
+      - run: make setup
+      - run: make start
+      - run: make tests
+      - run: make lint
