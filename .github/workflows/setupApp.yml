@@ -14,4 +14,10 @@ jobs:
       - name: make-test
         run: make test
       - name: make-lint
-        run: make lint
+        run: make lint'
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello from Hexlet
+        uses: hexlet-components/hello-from-hexlet-action@release
+
