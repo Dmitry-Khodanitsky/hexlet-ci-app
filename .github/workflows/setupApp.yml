@@ -2,11 +2,16 @@ name: setupApp
 # on – определяет события, которые запускают воркфлоу
 on: push
 jobs:
-  # build – произвольно выбранное имя задания
-  build:
+  main:
     runs-on: ubuntu-latest
-    steps: # список шагов, которые надо выполнить
-      - uses: actions/checkout@v4
-      - run: make setup
-      - run: make tests
-      - run: make lint
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - name: make-setup
+        run: make setup
+      - name: make-test
+        run: make test
+      - name: make-lint
+        run: make lint
